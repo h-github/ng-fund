@@ -19,9 +19,4 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     this.events = this.eventService.getEvents();
   }
-
-  getHref = (id: number): string => {
-    if (!id) return '#';
-    return `/events/${id}`;
-  };
 }

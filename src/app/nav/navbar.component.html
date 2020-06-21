@@ -38,7 +38,8 @@
           <a
             class="dropdown-item"
             *ngFor="let event of events"
-            [href]="getHref(event?.id)"
+            [routerLink]="['/events', event?.id]"
+          >
             >{{ event?.name }}</a
           >
         </div>
