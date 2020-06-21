@@ -9,6 +9,12 @@ import { EventService } from '../events/shared/event.service';
       #navbarNavDropdown {
         justify-content: space-between;
       }
+
+      .navbar-right a.active,
+      .dropdown-item.active,
+      .navbar-dark a.nav-link.active {
+        color: #f97924;
+      }
     `,
   ],
 })
@@ -17,6 +23,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(private eventService: EventService) {}
   ngOnInit(): void {
-    this.events = this.eventService.getEvents();
+    this.eventService
+      .getEvents()
+      .subscribe((events: any[]) => (this.events = events));
   }
 }

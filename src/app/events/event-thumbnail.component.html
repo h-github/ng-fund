@@ -1,4 +1,4 @@
-<div class="card hoverwell thumbnail">
+<div class="card hoverwell thumbnail" [routerLink]="['/events', event?.id]">
   <div class="card-body">
     <h5 class="card-title">{{ event?.name }}</h5>
     <div>Date: {{ event?.date }}</div>
@@ -48,7 +48,7 @@
       <span class="pad-left"></span>
       <span>{{ event?.location?.city }}, {{ event?.location?.country }}</span>
     </div>
-    <div *ngIf="event?.onlineUrl">Online URL: ${{ event?.onlineUrl }}</div>
+    <div *ngIf="event?.onlineUrl">Online URL: {{ event?.onlineUrl }}</div>
 
     <!-- <div [hidden]="!event?.location">
       <span>Location: {{ event?.location?.address }}</span>
