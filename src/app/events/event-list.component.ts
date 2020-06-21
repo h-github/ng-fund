@@ -3,13 +3,14 @@ import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from './shared/index';
 
 @Component({
   selector: 'event-list',
   templateUrl: './event-list.component.html',
 })
 export class EventsListComponent implements OnInit, OnDestroy {
-  events: any[];
+  events: IEvent[];
   unsubscribe: Subscription;
   constructor(
     private eventService: EventService,
@@ -27,7 +28,6 @@ export class EventsListComponent implements OnInit, OnDestroy {
   }
 
   handleThumbnailClick = (eventName: string) => {
-    console.log(eventName);
     this.toastrService.success(eventName);
   };
 }
