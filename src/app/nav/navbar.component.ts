@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EventService } from '../events/shared/event.service';
 
 @Component({
   selector: 'event-nav-bar',
@@ -11,4 +12,16 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class NavBarComponent {}
+export class NavBarComponent implements OnInit {
+  events: any[];
+
+  constructor(private eventService: EventService) {}
+  ngOnInit(): void {
+    this.events = this.eventService.getEvents();
+  }
+
+  getHref = (id: number): string => {
+    if (!id) return '#';
+    return `/events/${id}`;
+  };
+}

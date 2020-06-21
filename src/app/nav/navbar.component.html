@@ -35,9 +35,12 @@
           Events
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Angular Connect</a>
-          <a class="dropdown-item" href="#">Angular Connect</a>
-          <a class="dropdown-item" href="#">Angular Connect</a>
+          <a
+            class="dropdown-item"
+            *ngFor="let event of events"
+            [href]="getHref(event?.id)"
+            >{{ event?.name }}</a
+          >
         </div>
       </li>
     </ul>
