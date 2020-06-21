@@ -12,9 +12,9 @@
 
     <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
       Time: {{ event?.time }}
-      <spn *ngSwitchCase="'8:00 am'">(Early Start)</spn>
-      <spn *ngSwitchCase="'10:00 am'">(Late Start)</spn>
-      <spn *ngSwitchDefault>(Normal Start)</spn>
+      <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
+      <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
+      <span *ngSwitchDefault>(Normal Start)</span>
     </div>
 
     <!-- <div
