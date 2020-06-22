@@ -3,15 +3,15 @@
 
   <div class="row">
     <div class="col-md-11">
-      <h2>{{ event?.name }}</h2>
+      <h2>{{ event?.name | uppercase }}</h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{ event?.date }}</div>
+      <div><strong>Date:</strong> {{ event?.date | date }}</div>
       <div><strong>Time:</strong> {{ event?.time }}</div>
-      <div><strong>Price:</strong> ${{ event?.price }}</div>
+      <div><strong>Price:</strong> {{ event?.price | currency: "USD" }}</div>
     </div>
     <div class="col-md-6" *ngIf="event?.location">
       <address>
@@ -32,7 +32,36 @@
     <div class="col-md-2">
       <h3>Sessions</h3>
     </div>
-
+    <div class="col-md-7">
+      <button
+        class="btn btn-light right-margin"
+        [class.active]="filterBy === 'all'"
+        (click)="filterBy = 'all'"
+      >
+        All
+      </button>
+      <button
+        class="btn btn-light right-margin"
+        [class.active]="filterBy === 'beginner'"
+        (click)="filterBy = 'beginner'"
+      >
+        Beginner
+      </button>
+      <button
+        class="btn btn-light right-margin"
+        [class.active]="filterBy === 'intermediate'"
+        (click)="filterBy = 'intermediate'"
+      >
+        Intermediate
+      </button>
+      <button
+        class="btn btn-light right-margin"
+        [class.active]="filterBy === 'advance'"
+        (click)="filterBy = 'advance'"
+      >
+        Advance
+      </button>
+    </div>
     <div class="col-md-2">
       <a (click)="addSession()">Add Session</a>
     </div>
@@ -41,6 +70,7 @@
   <event-session-list
     *ngIf="!addMode"
     [sessions]="event?.sessions"
+    [filterBy]="filterBy"
   ></event-session-list>
 
   <event-create-session

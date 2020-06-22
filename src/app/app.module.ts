@@ -12,6 +12,7 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  DurationPipe,
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -33,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateSessionComponent,
     SessionListComponent,
     Error404Component,
+    DurationPipe,
   ],
   providers: [
     EventService,

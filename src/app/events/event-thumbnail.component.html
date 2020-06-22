@@ -1,7 +1,7 @@
 <div class="card hoverwell thumbnail" [routerLink]="['/events', event?.id]">
   <div class="card-body">
-    <h5 class="card-title">{{ event?.name }}</h5>
-    <div>Date: {{ event?.date }}</div>
+    <h5 class="card-title">{{ event?.name | uppercase }}</h5>
+    <div>Date: {{ event?.date | date }}</div>
 
     <!-- <div [ngStyle]="getStartTimeStyles()" [ngSwitch]="event?.time">
       Time: {{ event?.time }}
@@ -42,7 +42,7 @@
       <spn *ngSwitchCase="'10:00 am'">Late Start</spn>
       <spn *ngSwitchDefault>Normal Start</spn>
     </div> -->
-    <div>Price: ${{ event?.price }}</div>
+    <div>Price: {{ event?.price | currency: "USD" }}</div>
     <div *ngIf="event?.location">
       <span>Location: {{ event?.location?.address }}</span>
       <span class="pad-left"></span>
