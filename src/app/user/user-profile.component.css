@@ -1,0 +1,25 @@
+em {
+  color: red;
+  float: right;
+}
+
+.error input {
+  background-color: #e9b9bc;
+}
+
+.error ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #999;
+}
+.error ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #999;
+}
+.error :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #999;
+}
+.error :-moz-placeholder {
+  /* Firefox 18- */
+  color: #999;
+}
